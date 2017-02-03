@@ -1,0 +1,1 @@
+/share/t3data2/jolsson/run2_truth_validation/user.jolsson.mc15_13TeV.000024.MGPy8EG_A14N23LO_C1N2_WZ_400p0_100p0_bbqq_1L4andJ10.TRUTH1.20170112_10k_alpha1_1_EXT0/user.jolsson.10459856.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root

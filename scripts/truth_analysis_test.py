@@ -10,7 +10,7 @@ c.setalg("JetHistsAlgo", {"m_name": "Jets",
                           "m_detailStr": "truth",
                           "m_debug": False})
 
-''' Truth validation '''
+''' Truth validation studies '''
 c.setalg("TruthHistsAlgo", {"m_name": "Truth",
                             "m_inContainerName": "TruthParticles",
                             "m_detailStr": "leptons quarks bosons susy substructure",
