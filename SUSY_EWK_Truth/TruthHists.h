@@ -162,6 +162,7 @@ class TruthHists : public HistogramManager
     TH1F* m_N2_m; //!
     TH1F* m_N2_child_n; //!
     TH1F* m_N2_child_pdgId; //!
+    TH1F* m_N2_child_pdgId_susy; //!
     TH1F* m_N1_n; //!
     TH1F* m_N1_pt; //!
     TH1F* m_N1_pt_m; //!
@@ -172,16 +173,59 @@ class TruthHists : public HistogramManager
     TH1F* m_N1_child_n; //!
     TH1F* m_N1_child_pdgId; //!
 
-    TH1F* m_C1_N2_dPhi; //!
-    TH1F* m_C1_N2_dEta; //!
-    TH1F* m_C1_N2_dR; //!
-    TH1F* m_N1_W_dR; //!
-    TH1F* m_N1_Zh_dR; //!
-    TH1F* m_W_Zh_dR; //!
-    TH1F* m_C1_W_decays_dR; //!
-    TH2F* m_C1_W_decays_dR_vs_W_pt; //!
-    TH1F* m_N2_Zh_decays_dR; //!
-    TH2F* m_N2_Zh_decays_dR_vs_Zh_pt; //!
+    // Identified C1, N2 and their decay products
+    TH1F* m_good_C1_N2_dPhi; //!
+    TH1F* m_good_C1_N2_dEta; //!
+    TH1F* m_good_C1_N2_dR; //!
+    TH1F* m_good_C1_n; //!
+    TH1F* m_good_C1_pt; //!
+    TH1F* m_good_C1_pt_m; //!
+    TH1F* m_good_C1_pt_l; //!
+    TH1F* m_good_C1_eta; //!
+    TH1F* m_good_C1_phi; //!
+    TH1F* m_good_N2_n; //!
+    TH1F* m_good_N2_pt; //!
+    TH1F* m_good_N2_pt_m; //!
+    TH1F* m_good_N2_pt_l; //!
+    TH1F* m_good_N2_eta; //!
+    TH1F* m_good_N2_phi; //!
+    TH1F* m_good_N1_W_dR; //!
+    TH1F* m_good_N1_from_C1_n; //!
+    TH1F* m_good_N1_from_C1_pt; //!
+    TH1F* m_good_N1_from_C1_pt_m; //!
+    TH1F* m_good_N1_from_C1_pt_l; //!
+    TH1F* m_good_N1_from_C1_eta; //!
+    TH1F* m_good_N1_from_C1_phi; //!
+    TH1F* m_good_W_from_C1_n; //!
+    TH1F* m_good_W_from_C1_pt; //!
+    TH1F* m_good_W_from_C1_pt_m; //!
+    TH1F* m_good_W_from_C1_pt_l; //!
+    TH1F* m_good_W_from_C1_eta; //!
+    TH1F* m_good_W_from_C1_phi; //!
+    TH1F* m_good_N1_Zh_dR; //!
+    TH1F* m_good_N1_from_N2_n; //!
+    TH1F* m_good_N1_from_N2_pt; //!
+    TH1F* m_good_N1_from_N2_pt_m; //!
+    TH1F* m_good_N1_from_N2_pt_l; //!
+    TH1F* m_good_N1_from_N2_eta; //!
+    TH1F* m_good_N1_from_N2_phi; //!
+    TH1F* m_good_Zh_from_N2_n; //!
+    TH1F* m_good_Zh_from_N2_pt; //!
+    TH1F* m_good_Zh_from_N2_pt_m; //!
+    TH1F* m_good_Zh_from_N2_pt_l; //!
+    TH1F* m_good_Zh_from_N2_eta; //!
+    TH1F* m_good_Zh_from_N2_phi; //!
+    TH1F* m_good_W_Zh_dR; //!
+    TH1F* m_good_W_decays_pt1; //!
+    TH1F* m_good_W_decays_pt2; //!
+    TH1F* m_good_W_decays_pt; //!
+    TH1F* m_good_W_decays_dR; //!
+    TH2F* m_good_W_decays_dR_vs_W_pt; //!
+    TH1F* m_good_Zh_decays_pt1; //!
+    TH1F* m_good_Zh_decays_pt2; //!
+    TH1F* m_good_Zh_decays_pt; //!
+    TH1F* m_good_Zh_decays_dR; //!
+    TH2F* m_good_Zh_decays_dR_vs_Zh_pt; //!
 };
 
 #endif

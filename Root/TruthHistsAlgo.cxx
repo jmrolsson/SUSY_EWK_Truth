@@ -13,7 +13,7 @@ ClassImp(TruthHistsAlgo)
 
 TruthHistsAlgo :: TruthHistsAlgo ( std::string className ) :
     Algorithm(className),
-    m_plots(nullptr)
+    m_plots_default_cuts(nullptr)
 {
   m_inContainerName         = "";
   m_detailStr               = "";
@@ -44,9 +44,9 @@ EL::StatusCode TruthHistsAlgo :: histInitialize ()
 
 
   // declare class and add histograms to output
-  m_plots = new TruthHists(m_name, m_detailStr);
-  RETURN_CHECK("TruthHistsAlgo::histInitialize()", m_plots -> initialize(), "");
-  m_plots -> record( wk() );
+  m_plots_default_cuts = new TruthHists(m_name, m_detailStr);
+  RETURN_CHECK("TruthHistsAlgo::histInitialize()", m_plots_default_cuts -> initialize(), "");
+  m_plots_default_cuts -> record( wk() );
 
   return EL::StatusCode::SUCCESS;
 }
@@ -68,7 +68,11 @@ EL::StatusCode TruthHistsAlgo :: execute ()
   RETURN_CHECK("TruthHistsAlgo::execute()", HelperFunctions::retrieve(truths, m_inContainerName, m_event, m_store, m_verbose) ,"");
 
   float eventWeight = 1.0;
-  RETURN_CHECK("TruthHistsAlgo::execute()", m_plots->execute( truths, eventWeight ), "");
+ 
+  // // Implement cuts here:
+  // if (jet_pt < m_jet_ptMinCut) continue;
+  //
+  RETURN_CHECK("TruthHistsAlgo::execute()", m_plots_default_cuts->execute( truths, eventWeight ), "");
 
   return EL::StatusCode::SUCCESS;
 }
@@ -80,7 +84,7 @@ EL::StatusCode TruthHistsAlgo :: finalize () { return EL::StatusCode::SUCCESS; }
 EL::StatusCode TruthHistsAlgo :: histFinalize ()
 {
   // clean up memory
-  if(m_plots) delete m_plots;
+  if(m_plots_default_cuts) delete m_plots_default_cuts;
   RETURN_CHECK("xAH::Algorithm::algFinalize()", xAH::Algorithm::algFinalize(), "");
   return EL::StatusCode::SUCCESS;
 }
