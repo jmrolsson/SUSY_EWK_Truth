@@ -222,7 +222,7 @@ StatusCode TruthHists::initialize() {
     m_good_W_from_C1_eta    = book(m_name, "truth_good_W_from_C1_eta",   "W #eta", nBinsEta, minBinEta, maxBinEta);
     m_good_W_from_C1_phi    = book(m_name, "truth_good_W_from_C1_phi",   "W #phi",nBinsPhi, minBinPhi, maxBinPhi );
 
-    m_good_N1_Zh_dR         = book(m_name, "truth_N1_Zh_dR",             "#DeltaR(N1, Z/h)", nBinsDR, minBinDR, maxBinDR );
+    m_good_N1_Zh_dR         = book(m_name, "truth_good_N1_Zh_dR",             "#DeltaR(N1, Z/h)", nBinsDR, minBinDR, maxBinDR );
     m_good_N1_from_N2_n     = book(m_name, "truth_good_N1_from_N2_n",    "N_{N1}", nBinsN, minBinN, maxBinN );
     m_good_N1_from_N2_pt    = book(m_name, "truth_good_N1_from_N2_pt",   "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
     m_good_N1_from_N2_pt_m  = book(m_name, "truth_good_N1_from_N2_pt_m", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
