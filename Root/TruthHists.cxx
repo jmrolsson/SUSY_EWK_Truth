@@ -246,8 +246,8 @@ StatusCode TruthHists::initialize() {
     m_good_Zh_decays_pt2     = book(m_name, "truth_good_Zh_decays_pt2",   "Subleading q/#bar{q} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
     m_good_Zh_decays_dR     = book(m_name, "truth_good_Zh_decays_dR",     "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
 
-    m_good_W_decays_dR_vs_W_pt = book(m_name, "truth_good_W_decays_dR_vs_W_pt", "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_m, "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
-    m_good_Zh_decays_dR_vs_Zh_pt = book(m_name, "truth_good_Zh_decays_dR_vs_Zh_pt", "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_m, "#DeltaR b#bar{b}", nBinsDR, minBinDR, maxBinDR );
+    m_good_W_decays_dR_vs_W_pt = book(m_name, "truth_good_W_decays_dR_vs_W_pt", "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt, "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
+    m_good_Zh_decays_dR_vs_Zh_pt = book(m_name, "truth_good_Zh_decays_dR_vs_Zh_pt", "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt, "#DeltaR b#bar{b}", nBinsDR, minBinDR, maxBinDR );
   }
 
   return StatusCode::SUCCESS;
