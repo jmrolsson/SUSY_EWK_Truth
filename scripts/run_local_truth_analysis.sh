@@ -1,7 +1,7 @@
 # Truth studies for RunII SUSY EWK
 # Joakim Olsson <joakim.olsson@cern.ch>
 
-if ( -z "$ROOTCOREBIN" ); then
+if [ -z "$ROOTCOREBIN" ]; then
   echo "RootCore is not setup, please run:"
   echo "lsetup \'rcsetup Base,2.4.22\'"
 fi
