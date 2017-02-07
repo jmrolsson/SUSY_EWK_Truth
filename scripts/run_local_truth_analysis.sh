@@ -4,7 +4,6 @@
 if [ -z "$ROOTCOREBIN" ]; then
   echo "RootCore is not setup, please run:"
   echo "lsetup \'rcsetup Base,2.4.22\'"
-  exit 1
 
 else
 
