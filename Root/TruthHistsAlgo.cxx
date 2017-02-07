@@ -11,7 +11,7 @@
 // this is needed to distribute the algorithm to the workers
 ClassImp(TruthHistsAlgo)
 
-TruthHistsAlgo :: TruthHistsAlgo ( std::string className ) :
+  TruthHistsAlgo :: TruthHistsAlgo ( std::string className ) :
     Algorithm(className),
     m_plots_default_cuts(nullptr)
 {
@@ -68,7 +68,7 @@ EL::StatusCode TruthHistsAlgo :: execute ()
   RETURN_CHECK("TruthHistsAlgo::execute()", HelperFunctions::retrieve(truths, m_inContainerName, m_event, m_store, m_verbose) ,"");
 
   float eventWeight = 1.0;
- 
+
   // // Implement cuts here:
   // if (jet_pt < m_jet_ptMinCut) continue;
   //
