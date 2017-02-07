@@ -423,17 +423,13 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, floa
 
 StatusCode TruthHists::execute( const xAOD::TruthParticle* truth, float eventWeight ) {
 
-  std::cout << "In execute" << std:endl;
-
   float pt  = truth->pt()/1e3;
   float eta = truth->eta();
   float phi = truth->phi();
   float m   = truth->m()/1e3;
   int pdgId = truth->pdgId();
 
-  std::cout << "Before pt <  5" << std::endl;
-  if (pt < 5) return StatusCode::SUCCESS;
-  std::cout << "After pt < 5" << std::endl;
+  if (pt < 1) return StatusCode::SUCCESS;
 
   m_ntruth++;
   m_truth_pt            -> Fill( pt,    eventWeight );
