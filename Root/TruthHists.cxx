@@ -431,9 +431,9 @@ StatusCode TruthHists::execute( const xAOD::TruthParticle* truth, float eventWei
   float m   = truth->m()/1e3;
   int pdgId = truth->pdgId();
 
-  std::cout << "Before pt <  5" << std:endl;
+  std::cout << "Before pt <  5" << std::endl;
   if (pt < 5) return StatusCode::SUCCESS;
-  std::cout << "After pt < 5" << std:endl;
+  std::cout << "After pt < 5" << std::endl;
 
   m_ntruth++;
   m_truth_pt            -> Fill( pt,    eventWeight );
