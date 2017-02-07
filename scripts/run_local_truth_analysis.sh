@@ -4,8 +4,7 @@
 if [ -z "$ROOTCOREBIN" ]; then
   echo "RootCore is not setup, please run:"
   echo "lsetup 'rcsetup Base,2.4.22'"
-  exit
-fi
+  exit 1
 
 cd $ROOTCOREBIN/.. 
 mkdir -p results
@@ -18,3 +17,4 @@ do
   eval $process_command
 done;
 
+fi
