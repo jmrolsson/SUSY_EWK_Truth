@@ -53,7 +53,7 @@ class TruthHists : public HistogramManager
 
     TH1F* m_truth_n; //!
     TH1F* m_truth_pt; //!
-    TH1F* m_truth_pt_m; //!
+    TH1F* m_truth_pt_s; //!
     TH1F* m_truth_pt_l; //!
     TH1F* m_truth_eta; //!
     TH1F* m_truth_phi; //!
@@ -66,28 +66,28 @@ class TruthHists : public HistogramManager
 
     TH1F* m_e_n; //!
     TH1F* m_e_pt; //!
-    TH1F* m_e_pt_m; //!
+    TH1F* m_e_pt_s; //!
     TH1F* m_e_pt_l; //!
     TH1F* m_e_eta; //!
     TH1F* m_e_phi; //!
     TH1F* m_e_m; //!
     TH1F* m_mu_n; //!
     TH1F* m_mu_pt; //!
-    TH1F* m_mu_pt_m; //!
+    TH1F* m_mu_pt_s; //!
     TH1F* m_mu_pt_l; //!
     TH1F* m_mu_eta; //!
     TH1F* m_mu_phi; //!
     TH1F* m_mu_m; //!
     TH1F* m_tau_n; //!
     TH1F* m_tau_pt; //!
-    TH1F* m_tau_pt_m; //!
+    TH1F* m_tau_pt_s; //!
     TH1F* m_tau_pt_l; //!
     TH1F* m_tau_eta; //!
     TH1F* m_tau_phi; //!
     TH1F* m_tau_m; //!
     TH1F* m_lepton_n; //!
     TH1F* m_lepton_pt; //!
-    TH1F* m_lepton_pt_m; //!
+    TH1F* m_lepton_pt_s; //!
     TH1F* m_lepton_pt_l; //!
     TH1F* m_lepton_eta; //!
     TH1F* m_lepton_phi; //!
@@ -95,21 +95,21 @@ class TruthHists : public HistogramManager
 
     TH1F* m_t_n; //!
     TH1F* m_t_pt; //!
-    TH1F* m_t_pt_m; //!
+    TH1F* m_t_pt_s; //!
     TH1F* m_t_pt_l; //!
     TH1F* m_t_eta; //!
     TH1F* m_t_phi; //!
     TH1F* m_t_m; //!
     TH1F* m_b_n; //!
     TH1F* m_b_pt; //!
-    TH1F* m_b_pt_m; //!
+    TH1F* m_b_pt_s; //!
     TH1F* m_b_pt_l; //!
     TH1F* m_b_eta; //!
     TH1F* m_b_phi; //!
     TH1F* m_b_m; //!
     TH1F* m_quark_n; //!
     TH1F* m_quark_pt; //!
-    TH1F* m_quark_pt_m; //!
+    TH1F* m_quark_pt_s; //!
     TH1F* m_quark_pt_l; //!
     TH1F* m_quark_eta; //!
     TH1F* m_quark_phi; //!
@@ -117,7 +117,7 @@ class TruthHists : public HistogramManager
 
     TH1F* m_Z_n; //!
     TH1F* m_Z_pt; //!
-    TH1F* m_Z_pt_m; //!
+    TH1F* m_Z_pt_s; //!
     TH1F* m_Z_pt_l; //!
     TH1F* m_Z_eta; //!
     TH1F* m_Z_phi; //!
@@ -126,7 +126,7 @@ class TruthHists : public HistogramManager
     TH1F* m_Z_child_pdgId; //!
     TH1F* m_W_n; //!
     TH1F* m_W_pt; //!
-    TH1F* m_W_pt_m; //!
+    TH1F* m_W_pt_s; //!
     TH1F* m_W_pt_l; //!
     TH1F* m_W_eta; //!
     TH1F* m_W_phi; //!
@@ -135,7 +135,7 @@ class TruthHists : public HistogramManager
     TH1F* m_W_child_pdgId; //!
     TH1F* m_h_n; //!
     TH1F* m_h_pt; //!
-    TH1F* m_h_pt_m; //!
+    TH1F* m_h_pt_s; //!
     TH1F* m_h_pt_l; //!
     TH1F* m_h_eta; //!
     TH1F* m_h_phi; //!
@@ -145,7 +145,7 @@ class TruthHists : public HistogramManager
 
     TH1F* m_C1_n; //!
     TH1F* m_C1_pt; //!
-    TH1F* m_C1_pt_m; //!
+    TH1F* m_C1_pt_s; //!
     TH1F* m_C1_pt_l; //!
     TH1F* m_C1_eta; //!
     TH1F* m_C1_phi; //!
@@ -155,7 +155,7 @@ class TruthHists : public HistogramManager
     TH1F* m_C1_child_pdgId_susy; //!
     TH1F* m_N2_n; //!
     TH1F* m_N2_pt; //!
-    TH1F* m_N2_pt_m; //!
+    TH1F* m_N2_pt_s; //!
     TH1F* m_N2_pt_l; //!
     TH1F* m_N2_eta; //!
     TH1F* m_N2_phi; //!
@@ -165,7 +165,7 @@ class TruthHists : public HistogramManager
     TH1F* m_N2_child_pdgId_susy; //!
     TH1F* m_N1_n; //!
     TH1F* m_N1_pt; //!
-    TH1F* m_N1_pt_m; //!
+    TH1F* m_N1_pt_s; //!
     TH1F* m_N1_pt_l; //!
     TH1F* m_N1_eta; //!
     TH1F* m_N1_phi; //!
@@ -179,51 +179,57 @@ class TruthHists : public HistogramManager
     TH1F* m_good_C1_N2_dR; //!
     TH1F* m_good_C1_n; //!
     TH1F* m_good_C1_pt; //!
-    TH1F* m_good_C1_pt_m; //!
+    TH1F* m_good_C1_pt_s; //!
     TH1F* m_good_C1_pt_l; //!
     TH1F* m_good_C1_eta; //!
     TH1F* m_good_C1_phi; //!
+    TH1F* m_good_C1_m; //!
     TH1F* m_good_N2_n; //!
     TH1F* m_good_N2_pt; //!
-    TH1F* m_good_N2_pt_m; //!
+    TH1F* m_good_N2_pt_s; //!
     TH1F* m_good_N2_pt_l; //!
     TH1F* m_good_N2_eta; //!
     TH1F* m_good_N2_phi; //!
+    TH1F* m_good_N2_m; //!
     TH1F* m_good_N1_W_dR; //!
     TH1F* m_good_N1_from_C1_n; //!
     TH1F* m_good_N1_from_C1_pt; //!
-    TH1F* m_good_N1_from_C1_pt_m; //!
+    TH1F* m_good_N1_from_C1_pt_s; //!
     TH1F* m_good_N1_from_C1_pt_l; //!
     TH1F* m_good_N1_from_C1_eta; //!
     TH1F* m_good_N1_from_C1_phi; //!
+    TH1F* m_good_N1_from_C1_m; //!
     TH1F* m_good_W_from_C1_n; //!
     TH1F* m_good_W_from_C1_pt; //!
-    TH1F* m_good_W_from_C1_pt_m; //!
+    TH1F* m_good_W_from_C1_pt_s; //!
     TH1F* m_good_W_from_C1_pt_l; //!
     TH1F* m_good_W_from_C1_eta; //!
     TH1F* m_good_W_from_C1_phi; //!
+    TH1F* m_good_W_from_C1_m; //!
     TH1F* m_good_N1_Zh_dR; //!
     TH1F* m_good_N1_from_N2_n; //!
     TH1F* m_good_N1_from_N2_pt; //!
-    TH1F* m_good_N1_from_N2_pt_m; //!
+    TH1F* m_good_N1_from_N2_pt_s; //!
     TH1F* m_good_N1_from_N2_pt_l; //!
     TH1F* m_good_N1_from_N2_eta; //!
     TH1F* m_good_N1_from_N2_phi; //!
+    TH1F* m_good_N1_from_N2_m; //!
     TH1F* m_good_Zh_from_N2_n; //!
     TH1F* m_good_Zh_from_N2_pt; //!
-    TH1F* m_good_Zh_from_N2_pt_m; //!
+    TH1F* m_good_Zh_from_N2_pt_s; //!
     TH1F* m_good_Zh_from_N2_pt_l; //!
     TH1F* m_good_Zh_from_N2_eta; //!
     TH1F* m_good_Zh_from_N2_phi; //!
+    TH1F* m_good_Zh_from_N2_m; //!
     TH1F* m_good_W_Zh_dR; //!
+    TH1F* m_good_W_decays_pt; //!
     TH1F* m_good_W_decays_pt1; //!
     TH1F* m_good_W_decays_pt2; //!
-    TH1F* m_good_W_decays_pt; //!
     TH1F* m_good_W_decays_dR; //!
     TH2F* m_good_W_decays_dR_vs_W_pt; //!
+    TH1F* m_good_Zh_decays_pt; //!
     TH1F* m_good_Zh_decays_pt1; //!
     TH1F* m_good_Zh_decays_pt2; //!
-    TH1F* m_good_Zh_decays_pt; //!
     TH1F* m_good_Zh_decays_dR; //!
     TH2F* m_good_Zh_decays_dR_vs_Zh_pt; //!
 };
