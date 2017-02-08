@@ -335,7 +335,7 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, floa
       m_good_N2_pt_l -> Fill(m_N2[0]->pt()/1e3, eventWeight );
       m_good_N2_eta -> Fill(m_N2[0]->eta(), eventWeight );
       m_good_N2_phi -> Fill(m_N2[0]->phi(), eventWeight );
-      m_good_N2_m -> Fill(m_N2[0]->m(), eventWeight );
+      m_good_N2_m -> Fill(m_N2[0]->m()/1e3, eventWeight );
     }
 
     if( m_N1_from_C1.size() > 0 && m_W_from_C1.size() > 0 ) {
@@ -346,14 +346,14 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, floa
       m_good_N1_from_C1_pt_l -> Fill( m_N1_from_C1[0]->pt()/1e3);
       m_good_N1_from_C1_eta -> Fill(m_N1_from_C1[0]->eta(), eventWeight );
       m_good_N1_from_C1_phi -> Fill(m_N1_from_C1[0]->phi(), eventWeight );
-      m_good_N1_from_C1_m -> Fill(m_N1_from_C1[0]->m(), eventWeight );
+      m_good_N1_from_C1_m -> Fill(m_N1_from_C1[0]->m()/1e3, eventWeight );
       m_good_W_from_C1_n -> Fill( m_W_from_C1.size(), 1.0 );
       m_good_W_from_C1_pt_s -> Fill( m_W_from_C1[0]->pt()/1e3);
       m_good_W_from_C1_pt -> Fill( m_W_from_C1[0]->pt()/1e3);
       m_good_W_from_C1_pt_l -> Fill( m_W_from_C1[0]->pt()/1e3);
       m_good_W_from_C1_eta -> Fill(m_W_from_C1[0]->eta(), eventWeight );
       m_good_W_from_C1_phi -> Fill(m_W_from_C1[0]->phi(), eventWeight );
-      m_good_W_from_C1_m -> Fill(m_W_from_C1[0]->m(), eventWeight );
+      m_good_W_from_C1_m -> Fill(m_W_from_C1[0]->m()/1e3, eventWeight );
     }
 
     if( m_N1_from_N2.size() > 0 && m_Zh_from_N2.size() > 0 ) {
@@ -364,14 +364,14 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, floa
       m_good_N1_from_N2_pt_l -> Fill( m_N1_from_N2[0]->pt()/1e3);
       m_good_N1_from_N2_eta -> Fill(m_N1_from_N2[0]->eta(), eventWeight );
       m_good_N1_from_N2_phi -> Fill(m_N1_from_N2[0]->phi(), eventWeight );
-      m_good_N1_from_N2_m -> Fill(m_N1_from_N2[0]->m(), eventWeight );
+      m_good_N1_from_N2_m -> Fill(m_N1_from_N2[0]->m()/1e3, eventWeight );
       m_good_Zh_from_N2_n -> Fill( m_Zh_from_N2.size(), 1.0 );
       m_good_Zh_from_N2_pt_s -> Fill( m_Zh_from_N2[0]->pt()/1e3);
       m_good_Zh_from_N2_pt -> Fill( m_Zh_from_N2[0]->pt()/1e3);
       m_good_Zh_from_N2_pt_l -> Fill( m_Zh_from_N2[0]->pt()/1e3);
       m_good_Zh_from_N2_eta -> Fill(m_Zh_from_N2[0]->eta(), eventWeight );
       m_good_Zh_from_N2_phi -> Fill(m_Zh_from_N2[0]->phi(), eventWeight );
-      m_good_Zh_from_N2_m -> Fill(m_Zh_from_N2[0]->m(), eventWeight );
+      m_good_Zh_from_N2_m -> Fill(m_Zh_from_N2[0]->m()/1e3, eventWeight );
     }
 
     if( m_W_from_C1.size() > 0 && m_Zh_from_N2.size() > 0 ) {
