@@ -1,4 +1,14 @@
-for sample in WZ_500p0_200p0 WZ_500p0_0p5 WZ_400p0_100p0 WZ_400p0_0p5 WZ_300p0_100p0 WZ_300p0_0p5 WZ_200p0_50p0 WZ_200p0_0p5 WZ_500p0_200p0 WZ_500p0_0p5 WZ_400p0_100p0 WZ_400p0_0p5 WZ_300p0_100p0 WZ_300p0_0p5 WZ_200p0_50p0 WZ_200p0_0p5
+# Script for creating separate file lists for each sample 
+# Joakim Olsson <joakim.olsson@cern.ch>
+# 2017-02-07
+
+path=/share/t3data2/jolsson/run2_truth_validation/
+> $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/sample_list.txt
+for sample in $(ls $path) 
 do 
-  find /share/t3data2/jolsson/run2_truth_validation/user.jolsson.mc15_13TeV.*.MGPy8EG_A14N23LO_C1N2_${sample}_bbqq_J10.TRUTH1.20170204_30k_1_EXT0/ -name *root > $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/mc15_13TeV_C1N2_${sample}_bbqq_J10.txt;
+  if [ -d $path/$sample ]; then
+    sample_tag=$(echo $sample | sed -r "s/user.*A14N23LO_//g" | sed -r "s/\.TRUTH.*//g")
+    find /share/t3data2/jolsson/run2_truth_validation/${sample}/ -name *root > $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/mc15_13TeV_${sample_tag}.txt;
+    echo mc15_13TeV_$sample_tag >> $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/sample_list.txt;
+  fi
 done;
