@@ -1,5 +1,6 @@
 # Truth studies for RunII SUSY EWK
 # Joakim Olsson <joakim.olsson@cern.ch>
+# 2017-02-07
 
 if [ -z "$ROOTCOREBIN" ]; then
   echo "RootCore is not setup, please run:"

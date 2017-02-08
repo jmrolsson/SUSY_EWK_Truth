@@ -1,3 +1,4 @@
+# Truth studies for RunII SUSY EWK
 # Script for creating separate file lists for each sample 
 # Joakim Olsson <joakim.olsson@cern.ch>
 # 2017-02-07
