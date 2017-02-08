@@ -11,9 +11,9 @@ else
   cd $ROOTCOREBIN/.. 
   mkdir -p results
 
-  for sample in $(cat $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/sample_list.txt) do;
+  for sample in $(cat $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/sample_list.txt); do
     process_command="xAH_run.py --files ${sample}.txt --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir results/${sample} --verbose --force direct > /dev/null 2>&1 &"
-    # echo "Running: "$process_command
+    echo "Running: "$process_command
     eval $process_command
   done;
 
