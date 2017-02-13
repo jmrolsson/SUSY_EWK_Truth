@@ -44,7 +44,7 @@ EL::StatusCode TruthHistsAlgo :: histInitialize ()
 
 
   // declare class and add histograms to output
-  m_plots_default_cuts = new TruthHists(m_name, m_detailStr);
+  m_plots_default_cuts = new TruthHists(m_name, m_detailStr, m_truth_ptMinCut, m_truth_etaAbsMaxCut);
   RETURN_CHECK("TruthHistsAlgo::histInitialize()", m_plots_default_cuts -> initialize(), "");
   m_plots_default_cuts -> record( wk() );
 
@@ -68,11 +68,7 @@ EL::StatusCode TruthHistsAlgo :: execute ()
   RETURN_CHECK("TruthHistsAlgo::execute()", HelperFunctions::retrieve(truths, m_inContainerName, m_event, m_store, m_verbose) ,"");
 
   float eventWeight = 1.0;
- 
-  // // Implement cuts here:
-  // if (jet_pt < m_jet_ptMinCut) continue;
-  //
-  RETURN_CHECK("TruthHistsAlgo::execute()", m_plots_default_cuts->execute( truths, eventWeight ), "");
+  RETURN_CHECK("TruthHistsAlgo::execute()", m_plots_default_cuts->execute( truths, eventWeight), "");
 
   return EL::StatusCode::SUCCESS;
 }
