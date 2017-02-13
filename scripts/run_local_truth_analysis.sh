@@ -12,9 +12,8 @@ else
   mkdir -p results
 
   for sample in $(cat $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/sample_list.txt); do
-    process_command="xAH_run.py --files ${sample}.txt --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir results/${sample} --verbose --force direct > /dev/null 2>&1 &"
-    echo "Running: "$process_command
-    eval $process_command
+    echo "Running: "xAH_run.py --files SUSY_EWK_Truth/filelists/${sample}.txt --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir results/${sample} --verbose --force direct 2>&1 >/dev/null &
+    xAH_run.py --files SUSY_EWK_Truth/filelists/${sample}.txt --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir results/${sample} --verbose --force direct 2>&1 >/dev/null &
   done;
 
 fi

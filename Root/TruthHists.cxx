@@ -30,8 +30,8 @@ StatusCode TruthHists::initialize() {
   unsigned int nBinsDR = 40; float minBinDR = 0.0; float maxBinDR = 4.0;
 
   m_truth_n             = book(m_name, "truth_n",             "N_{truth}", nBinsN_l, minBinN_l, maxBinN_l );
-  m_truth_pt            = book(m_name, "truth_pt",          "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
-  m_truth_pt_s          = book(m_name, "truth_pt_s",            "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+  m_truth_pt            = book(m_name, "truth_pt",            "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+  m_truth_pt_s          = book(m_name, "truth_pt_s",          "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
   m_truth_pt_l          = book(m_name, "truth_pt_l",          "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
   m_truth_eta           = book(m_name, "truth_eta",           "truth #eta", nBinsEta, minBinEta, maxBinEta);
   m_truth_phi           = book(m_name, "truth_phi",           "truth #phi",nBinsPhi, minBinPhi, maxBinPhi );
@@ -155,8 +155,8 @@ StatusCode TruthHists::initialize() {
     m_fillSUSY = true;
 
     m_C1_n             = book(m_name, "truth_C1_n",             "N_{C1}", nBinsN, minBinN, maxBinN );
-    m_C1_pt            = book(m_name, "truth_C1_pt",          "C1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
-    m_C1_pt_s          = book(m_name, "truth_C1_pt_s",            "C1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_C1_pt            = book(m_name, "truth_C1_pt",            "C1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_C1_pt_s          = book(m_name, "truth_C1_pt_s",          "C1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
     m_C1_pt_l          = book(m_name, "truth_C1_pt_l",          "C1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
     m_C1_eta           = book(m_name, "truth_C1_eta",           "C1 #eta", nBinsEta, minBinEta, maxBinEta);
     m_C1_phi           = book(m_name, "truth_C1_phi",           "C1 #phi",nBinsPhi, minBinPhi, maxBinPhi );
@@ -210,50 +210,72 @@ StatusCode TruthHists::initialize() {
     m_good_N2_phi   = book(m_name, "truth_good_N2_phi",  "N2 #phi",nBinsPhi, minBinPhi, maxBinPhi );
     m_good_N2_m     = book(m_name, "truth_good_N2_m",    "N2 m [GeV]", nBinsPt, minBinPt, maxBinPt );
 
-    m_good_N1_W_dR          = book(m_name, "truth_good_N1_W_dR",         "#DeltaR(N1, W)", nBinsDR, minBinDR, maxBinDR );
-    m_good_N1_from_C1_n     = book(m_name, "truth_good_N1_from_C1_n",    "N_{N1}", nBinsN, minBinN, maxBinN );
-    m_good_N1_from_C1_pt    = book(m_name, "truth_good_N1_from_C1_pt",   "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
-    m_good_N1_from_C1_pt_s  = book(m_name, "truth_good_N1_from_C1_pt_s", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
-    m_good_N1_from_C1_pt_l  = book(m_name, "truth_good_N1_from_C1_pt_l", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
-    m_good_N1_from_C1_eta   = book(m_name, "truth_good_N1_from_C1_eta",  "N1 #eta", nBinsEta, minBinEta, maxBinEta);
-    m_good_N1_from_C1_phi   = book(m_name, "truth_good_N1_from_C1_phi",  "N1 #phi",nBinsPhi, minBinPhi, maxBinPhi );
-    m_good_N1_from_C1_m     = book(m_name, "truth_good_N1_from_C1_m",    "N1 m [GeV]", nBinsPt, minBinPt, maxBinPt );
-    m_good_W_from_C1_n      = book(m_name, "truth_good_W_from_C1_n",     "N_{W}", nBinsN, minBinN, maxBinN );
-    m_good_W_from_C1_pt     = book(m_name, "truth_good_W_from_C1_pt",    "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
-    m_good_W_from_C1_pt_s   = book(m_name, "truth_good_W_from_C1_pt_s",  "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
-    m_good_W_from_C1_pt_l   = book(m_name, "truth_good_W_from_C1_pt_l",  "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
-    m_good_W_from_C1_eta    = book(m_name, "truth_good_W_from_C1_eta",   "W #eta", nBinsEta, minBinEta, maxBinEta);
-    m_good_W_from_C1_phi    = book(m_name, "truth_good_W_from_C1_phi",   "W #phi",nBinsPhi, minBinPhi, maxBinPhi );
-    m_good_W_from_C1_m      = book(m_name, "truth_good_W_from_C1_m",     "W m [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_N1_W_dR               = book(m_name, "truth_good_N1_W_dR",         "#DeltaR(N1, W)", nBinsDR, minBinDR, maxBinDR );
+    m_good_N1_from_C1_n          = book(m_name, "truth_good_N1_from_C1_n",    "N_{N1}", nBinsN, minBinN, maxBinN );
+    m_good_N1_from_C1_pt         = book(m_name, "truth_good_N1_from_C1_pt",   "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_N1_from_C1_pt_s       = book(m_name, "truth_good_N1_from_C1_pt_s", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_N1_from_C1_pt_l       = book(m_name, "truth_good_N1_from_C1_pt_l", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
+    m_good_N1_from_C1_eta        = book(m_name, "truth_good_N1_from_C1_eta",  "N1 #eta", nBinsEta, minBinEta, maxBinEta);
+    m_good_N1_from_C1_phi        = book(m_name, "truth_good_N1_from_C1_phi",  "N1 #phi",nBinsPhi, minBinPhi, maxBinPhi );
+    m_good_N1_from_C1_m          = book(m_name, "truth_good_N1_from_C1_m",    "N1 m [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_W_from_C1_n           = book(m_name, "truth_good_W_from_C1_n",     "N_{W}", nBinsN, minBinN, maxBinN );
+    m_good_W_from_C1_pt          = book(m_name, "truth_good_W_from_C1_pt",    "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_W_from_C1_pt_s        = book(m_name, "truth_good_W_from_C1_pt_s",  "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_W_from_C1_pt_l        = book(m_name, "truth_good_W_from_C1_pt_l",  "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
+    m_good_W_from_C1_eta         = book(m_name, "truth_good_W_from_C1_eta",   "W #eta", nBinsEta, minBinEta, maxBinEta);
+    m_good_W_from_C1_phi         = book(m_name, "truth_good_W_from_C1_phi",   "W #phi",nBinsPhi, minBinPhi, maxBinPhi );
+    m_good_W_from_C1_m           = book(m_name, "truth_good_W_from_C1_m",     "W m [GeV]", nBinsPt, minBinPt, maxBinPt_s );
 
-    m_good_N1_Zh_dR         = book(m_name, "truth_good_N1_Zh_dR",        "#DeltaR(N1, Z/h)", nBinsDR, minBinDR, maxBinDR );
-    m_good_N1_from_N2_n     = book(m_name, "truth_good_N1_from_N2_n",    "N_{N1}", nBinsN, minBinN, maxBinN );
-    m_good_N1_from_N2_pt    = book(m_name, "truth_good_N1_from_N2_pt",   "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
-    m_good_N1_from_N2_pt_s  = book(m_name, "truth_good_N1_from_N2_pt_s", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
-    m_good_N1_from_N2_pt_l  = book(m_name, "truth_good_N1_from_N2_pt_l", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
-    m_good_N1_from_N2_eta   = book(m_name, "truth_good_N1_from_N2_eta",  "N1 #eta", nBinsEta, minBinEta, maxBinEta);
-    m_good_N1_from_N2_phi   = book(m_name, "truth_good_N1_from_N2_phi",  "N1 #phi",nBinsPhi, minBinPhi, maxBinPhi );
-    m_good_N1_from_N2_m     = book(m_name, "truth_good_N1_from_N2_m",    "N1 m [GeV]", nBinsPt, minBinPt, maxBinPt );
-    m_good_Zh_from_N2_n     = book(m_name, "truth_good_Zh_from_N2_n",    "N_{W}", nBinsN, minBinN, maxBinN );
-    m_good_Zh_from_N2_pt    = book(m_name, "truth_good_Zh_from_N2_pt",   "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
-    m_good_Zh_from_N2_pt_s  = book(m_name, "truth_good_Zh_from_N2_pt_s", "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
-    m_good_Zh_from_N2_pt_l  = book(m_name, "truth_good_Zh_from_N2_pt_l", "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
-    m_good_Zh_from_N2_eta   = book(m_name, "truth_good_Zh_from_N2_eta",  "Z/h #eta", nBinsEta, minBinEta, maxBinEta);
-    m_good_Zh_from_N2_phi   = book(m_name, "truth_good_Zh_from_N2_phi",  "Z/h #phi",nBinsPhi, minBinPhi, maxBinPhi );
-    m_good_Zh_from_N2_m     = book(m_name, "truth_good_Zh_from_N2_m",    "Z/h m [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_N1_Zh_dR              = book(m_name, "truth_good_N1_Zh_dR",        "#DeltaR(N1, Z/h)", nBinsDR, minBinDR, maxBinDR );
+    m_good_N1_from_N2_n          = book(m_name, "truth_good_N1_from_N2_n",    "N_{N1}", nBinsN, minBinN, maxBinN );
+    m_good_N1_from_N2_pt         = book(m_name, "truth_good_N1_from_N2_pt",   "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_N1_from_N2_pt_s       = book(m_name, "truth_good_N1_from_N2_pt_s", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_N1_from_N2_pt_l       = book(m_name, "truth_good_N1_from_N2_pt_l", "N1 p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
+    m_good_N1_from_N2_eta        = book(m_name, "truth_good_N1_from_N2_eta",  "N1 #eta", nBinsEta, minBinEta, maxBinEta);
+    m_good_N1_from_N2_phi        = book(m_name, "truth_good_N1_from_N2_phi",  "N1 #phi",nBinsPhi, minBinPhi, maxBinPhi );
+    m_good_N1_from_N2_m          = book(m_name, "truth_good_N1_from_N2_m",    "N1 m [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_Zh_from_N2_n          = book(m_name, "truth_good_Zh_from_N2_n",    "N_{W}", nBinsN, minBinN, maxBinN );
+    m_good_Zh_from_N2_pt         = book(m_name, "truth_good_Zh_from_N2_pt",   "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_Zh_from_N2_pt_s       = book(m_name, "truth_good_Zh_from_N2_pt_s", "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_Zh_from_N2_pt_l       = book(m_name, "truth_good_Zh_from_N2_pt_l", "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
+    m_good_Zh_from_N2_eta        = book(m_name, "truth_good_Zh_from_N2_eta",  "Z/h #eta", nBinsEta, minBinEta, maxBinEta);
+    m_good_Zh_from_N2_phi        = book(m_name, "truth_good_Zh_from_N2_phi",  "Z/h #phi",nBinsPhi, minBinPhi, maxBinPhi );
+    m_good_Zh_from_N2_m          = book(m_name, "truth_good_Zh_from_N2_m",    "Z/h m [GeV]", nBinsPt, minBinPt, maxBinPt_s );
 
-    m_good_W_Zh_dR          = book(m_name, "truth_good_W_Zh_dR",         "#DeltaR(W, Z/h)", nBinsDR, minBinDR, maxBinDR );
-    m_good_W_decays_pt      = book(m_name, "truth_good_W_decays_pt",     "b/#bar{b} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-    m_good_W_decays_pt1     = book(m_name, "truth_good_W_decays_pt1",    "Leading b/#bar{b} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-    m_good_W_decays_pt2     = book(m_name, "truth_good_W_decays_pt2",    "Subleading b/#bar{b} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-    m_good_W_decays_dR      = book(m_name, "truth_good_W_decays_dR",     "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
-    m_good_Zh_decays_pt     = book(m_name, "truth_good_Zh_decays_pt",    "q/#bar{q} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-    m_good_Zh_decays_pt1    = book(m_name, "truth_good_Zh_decays_pt1",   "Leading q/#bar{q} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-    m_good_Zh_decays_pt2    = book(m_name, "truth_good_Zh_decays_pt2",   "Subleading q/#bar{q} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-    m_good_Zh_decays_dR     = book(m_name, "truth_good_Zh_decays_dR",    "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
+    m_good_W_Zh_dR               = book(m_name, "truth_good_W_Zh_dR",         "#DeltaR(W, Z/h)", nBinsDR, minBinDR, maxBinDR );
+    m_good_W_decays_pt           = book(m_name, "truth_good_W_decays_pt",     "b/#bar{b} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_good_W_decays_pt1          = book(m_name, "truth_good_W_decays_pt1",    "Leading b/#bar{b} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_good_W_decays_pt2          = book(m_name, "truth_good_W_decays_pt2",    "Subleading b/#bar{b} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_good_W_decays_dR           = book(m_name, "truth_good_W_decays_dR",     "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
+    m_good_Zh_decays_pt          = book(m_name, "truth_good_Zh_decays_pt",    "q/#bar{q} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_good_Zh_decays_pt1         = book(m_name, "truth_good_Zh_decays_pt1",   "Leading q/#bar{q} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_good_Zh_decays_pt2         = book(m_name, "truth_good_Zh_decays_pt2",   "Subleading q/#bar{q} p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_good_Zh_decays_dR          = book(m_name, "truth_good_Zh_decays_dR",    "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
 
-    m_good_W_decays_dR_vs_W_pt = book(m_name, "truth_good_W_decays_dR_vs_W_pt", "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt, "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
+    m_good_W_decays_dR_vs_W_pt   = book(m_name, "truth_good_W_decays_dR_vs_W_pt", "W p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt, "#DeltaR q#bar{q}", nBinsDR, minBinDR, maxBinDR );
     m_good_Zh_decays_dR_vs_Zh_pt = book(m_name, "truth_good_Zh_decays_dR_vs_Zh_pt", "Z/h p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt, "#DeltaR b#bar{b}", nBinsDR, minBinDR, maxBinDR );
+
+    m_good_W_decays_invmass      = book(m_name, "m_good_W_decays_invmass", "M^{2}_{W} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_W_decays_invmass_s    = book(m_name, "m_good_W_decays_invmass_s", "M^{2}_{W} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_Zh_decays_invmass     = book(m_name, "m_good_Zh_decays_invmass", "M^{2}_{Z/h} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_Zh_decays_invmass_s   = book(m_name, "m_good_Zh_decays_invmass_s", "M^{2}_{Z/h} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+
+    m_good_MET                   = book(m_name, "m_good_MET", "MET [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_MET_s                 = book(m_name, "m_good_MET_s", "MET [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_MET_l                 = book(m_name, "m_good_MET_l", "MET [GeV]", nBinsPt, minBinPt, maxBinPt_l );
+
+    m_good_diboson_pt            = book(m_name, "m_good_diboson_pt", "di-boson p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_diboson_pt_s          = book(m_name, "m_good_diboson_pt_s", "di-boson p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_diboson_pt_l          = book(m_name, "m_good_diboson_pt_l", "di-boson p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
+    m_good_diboson_mt            = book(m_name, "m_good_diboson_mt", "di-boson m_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_diboson_mt_s          = book(m_name, "m_good_diboson_mt_s", "di-boson m_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_diboson_mt_l          = book(m_name, "m_good_diboson_mt_l", "di-boson m_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
+    m_good_diboson_invmass       = book(m_name, "m_good_diboson_invmass", "M^{2} m_{T} [GeV]", nBinsPt, minBinPt, maxBinPt );
+    m_good_diboson_invmass_s     = book(m_name, "m_good_diboson_invmass_s", "M^{2} m_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s );
+    m_good_diboson_invmass_l     = book(m_name, "m_good_diboson_invmass_l", "M^{2} m_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l );
+
+    m_good_diboson_MET_dR        = book(m_name, "truth_diboson_MET_dR", "#DeltaR(di-boson, MET)", nBinsDR, minBinDR, maxBinDR );
+
   }
 
   return StatusCode::SUCCESS;
@@ -392,6 +414,10 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, floa
       if ( m_W_from_C1.size() > 0 ){
         m_good_W_decays_dR_vs_W_pt -> Fill( m_W_from_C1[0]->pt()/1e3, m_C1_W_decays[0]->p4().DeltaR(m_C1_W_decays[1]->p4()), eventWeight );
       }
+      // invariant mass of W decay products
+      float W_invmass = (m_C1_W_decays[0]->p4()+m_C1_W_decays[1]->p4()).M()/1e3;
+      m_good_W_decays_invmass -> Fill( W_invmass, eventWeight );
+      m_good_W_decays_invmass_s -> Fill( W_invmass, eventWeight );
     }
 
     if( m_N2_Zh_decays.size() > 1 ) {
@@ -407,6 +433,32 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, floa
       m_good_Zh_decays_dR -> Fill( m_N2_Zh_decays[0]->p4().DeltaR(m_N2_Zh_decays[1]->p4()), eventWeight );
       if ( m_Zh_from_N2.size() > 0 ){
         m_good_Zh_decays_dR_vs_Zh_pt -> Fill( m_Zh_from_N2[0]->pt()/1e3, m_N2_Zh_decays[0]->p4().DeltaR(m_N2_Zh_decays[1]->p4()), eventWeight );
+      }
+      // invariant mass of Zh decay products
+      float Zh_invmass = (m_N2_Zh_decays[0]->p4()+m_N2_Zh_decays[1]->p4()).M()/1e3;
+      m_good_Zh_decays_invmass -> Fill( Zh_invmass, eventWeight );
+      m_good_Zh_decays_invmass_s -> Fill( Zh_invmass, eventWeight );
+    }
+
+    // MET (combining the N1 four vectors
+    if( m_N1_from_C1.size() > 0 && m_N1_from_N2.size() > 0) {
+      TLorentzVector met = m_N1_from_C1[0]->p4()+m_N1_from_N2[0]->p4();
+      m_good_MET -> Fill(met.Pt()/1e3, eventWeight);
+      m_good_MET_s -> Fill(met.Pt()/1e3, eventWeight);
+      m_good_MET_l -> Fill(met.Pt()/1e3, eventWeight);
+
+      if( m_W_from_C1.size() > 0 && m_Zh_from_N2.size() > 0 ) {
+        TLorentzVector diboson = m_W_from_C1[0]->p4()+m_Zh_from_N2[0]->p4();
+        m_good_diboson_pt -> Fill( diboson.Pt()/1e3, eventWeight );
+        m_good_diboson_pt_s -> Fill( diboson.Pt()/1e3, eventWeight );
+        m_good_diboson_pt_l -> Fill( diboson.Pt()/1e3, eventWeight );
+        m_good_diboson_mt -> Fill( diboson.Mt()/1e3, eventWeight );
+        m_good_diboson_mt_s -> Fill( diboson.Mt()/1e3, eventWeight );
+        m_good_diboson_mt_l -> Fill( diboson.Mt()/1e3, eventWeight );
+        m_good_diboson_invmass -> Fill( diboson.M()/1e3, eventWeight );
+        m_good_diboson_invmass_s -> Fill( diboson.M()/1e3, eventWeight );
+        m_good_diboson_invmass_l -> Fill( diboson.M()/1e3, eventWeight );
+        m_good_diboson_MET_dR -> Fill( diboson.DeltaR(met), eventWeight );
       }
     }
   }

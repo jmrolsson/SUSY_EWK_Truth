@@ -184,6 +184,7 @@ class TruthHists : public HistogramManager
     TH1F* m_good_C1_eta; //!
     TH1F* m_good_C1_phi; //!
     TH1F* m_good_C1_m; //!
+
     TH1F* m_good_N2_n; //!
     TH1F* m_good_N2_pt; //!
     TH1F* m_good_N2_pt_s; //!
@@ -191,6 +192,7 @@ class TruthHists : public HistogramManager
     TH1F* m_good_N2_eta; //!
     TH1F* m_good_N2_phi; //!
     TH1F* m_good_N2_m; //!
+
     TH1F* m_good_N1_W_dR; //!
     TH1F* m_good_N1_from_C1_n; //!
     TH1F* m_good_N1_from_C1_pt; //!
@@ -199,6 +201,7 @@ class TruthHists : public HistogramManager
     TH1F* m_good_N1_from_C1_eta; //!
     TH1F* m_good_N1_from_C1_phi; //!
     TH1F* m_good_N1_from_C1_m; //!
+
     TH1F* m_good_W_from_C1_n; //!
     TH1F* m_good_W_from_C1_pt; //!
     TH1F* m_good_W_from_C1_pt_s; //!
@@ -206,6 +209,7 @@ class TruthHists : public HistogramManager
     TH1F* m_good_W_from_C1_eta; //!
     TH1F* m_good_W_from_C1_phi; //!
     TH1F* m_good_W_from_C1_m; //!
+
     TH1F* m_good_N1_Zh_dR; //!
     TH1F* m_good_N1_from_N2_n; //!
     TH1F* m_good_N1_from_N2_pt; //!
@@ -214,6 +218,7 @@ class TruthHists : public HistogramManager
     TH1F* m_good_N1_from_N2_eta; //!
     TH1F* m_good_N1_from_N2_phi; //!
     TH1F* m_good_N1_from_N2_m; //!
+
     TH1F* m_good_Zh_from_N2_n; //!
     TH1F* m_good_Zh_from_N2_pt; //!
     TH1F* m_good_Zh_from_N2_pt_s; //!
@@ -221,17 +226,38 @@ class TruthHists : public HistogramManager
     TH1F* m_good_Zh_from_N2_eta; //!
     TH1F* m_good_Zh_from_N2_phi; //!
     TH1F* m_good_Zh_from_N2_m; //!
+
     TH1F* m_good_W_Zh_dR; //!
     TH1F* m_good_W_decays_pt; //!
     TH1F* m_good_W_decays_pt1; //!
     TH1F* m_good_W_decays_pt2; //!
     TH1F* m_good_W_decays_dR; //!
     TH2F* m_good_W_decays_dR_vs_W_pt; //!
+    TH1F* m_good_W_decays_invmass; //!
+    TH1F* m_good_W_decays_invmass_s; //!
+
     TH1F* m_good_Zh_decays_pt; //!
     TH1F* m_good_Zh_decays_pt1; //!
     TH1F* m_good_Zh_decays_pt2; //!
     TH1F* m_good_Zh_decays_dR; //!
     TH2F* m_good_Zh_decays_dR_vs_Zh_pt; //!
+    TH1F* m_good_Zh_decays_invmass; //!
+    TH1F* m_good_Zh_decays_invmass_s; //!
+
+    TH1F* m_good_MET; //!
+    TH1F* m_good_MET_s; //!
+    TH1F* m_good_MET_l; //!
+
+    TH1F* m_good_diboson_pt; //!
+    TH1F* m_good_diboson_pt_s; //!
+    TH1F* m_good_diboson_pt_l; //!
+    TH1F* m_good_diboson_mt; //!
+    TH1F* m_good_diboson_mt_s; //!
+    TH1F* m_good_diboson_mt_l; //!
+    TH1F* m_good_diboson_invmass; //!
+    TH1F* m_good_diboson_invmass_s; //!
+    TH1F* m_good_diboson_invmass_l; //!
+    TH1F* m_good_diboson_MET_dR; //!
 };
 
 #endif
