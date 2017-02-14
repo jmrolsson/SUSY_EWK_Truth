@@ -12,18 +12,21 @@ class TruthHistsAlgo : public xAH::Algorithm
   // put your configuration variables here as public variables.
   // that way they can be set directly from CINT and python.
 public:
-  std::string m_inContainerName;
+  std::string m_truthContainerName;
+  std::string m_jetContainerName;
 
   // configuration variables
   std::string m_detailStr;
 
-  // cuts
+  // truth parton cuts
+  float m_truth_ptMinCut = 0.;
+  float m_truth_etaAbsMaxCut = 1e8;
+  
+  // truth jet cuts
   float m_jet_ptMinCut = 0.;
   float m_bJet_etaAbsMaxCut = 1e8;
   float m_min_n_bJets = 1e8;
 
-  float m_truth_ptMinCut = 0.;
-  float m_truth_etaAbsMaxCut = 1e8;
 
 private:
   TruthHists* m_plots_default_cuts; //!

@@ -15,7 +15,8 @@ TruthHistsAlgo :: TruthHistsAlgo ( std::string className ) :
     Algorithm(className),
     m_plots_default_cuts(nullptr)
 {
-  m_inContainerName         = "";
+  m_truthContainerName      = "";
+  m_jetContainerName        = "";
   m_detailStr               = "";
   m_debug                   = false;
 
@@ -37,14 +38,15 @@ EL::StatusCode TruthHistsAlgo :: histInitialize ()
   Info("histInitialize()", "%s", m_name.c_str() );
   RETURN_CHECK("xAH::Algorithm::algInitialize()", xAH::Algorithm::algInitialize(), "");
   // needed here and not in initalize since this is called first
-  if( m_inContainerName.empty() || m_detailStr.empty() ){
+  if( m_truthContainerName.empty() || m_jetContainerName.empty() || m_detailStr.empty() ){
     Error("histInitialize()", "One or more required configuration values are empty");
     return EL::StatusCode::FAILURE;
   }
 
 
   // declare class and add histograms to output
-  m_plots_default_cuts = new TruthHists(m_name, m_detailStr, m_truth_ptMinCut, m_truth_etaAbsMaxCut);
+  m_plots_default_cuts = new TruthHists(m_name, m_detailStr, m_truth_ptMinCut, m_truth_etaAbsMaxCut, 
+      m_jet_ptMinCut, m_bJet_etaAbsMaxCut, m_min_n_bJets);
   RETURN_CHECK("TruthHistsAlgo::histInitialize()", m_plots_default_cuts -> initialize(), "");
   m_plots_default_cuts -> record( wk() );
 
@@ -64,11 +66,18 @@ EL::StatusCode TruthHistsAlgo :: initialize ()
 
 EL::StatusCode TruthHistsAlgo :: execute ()
 {
-  const xAOD::TruthParticleContainer* truths(nullptr);
-  RETURN_CHECK("TruthHistsAlgo::execute()", HelperFunctions::retrieve(truths, m_inContainerName, m_event, m_store, m_verbose) ,"");
-
   float eventWeight = 1.0;
-  RETURN_CHECK("TruthHistsAlgo::execute()", m_plots_default_cuts->execute( truths, eventWeight), "");
+
+  const xAOD::TruthParticleContainer* truths(nullptr);
+  if (m_truthContainerName != "")
+    RETURN_CHECK("TruthHistsAlgo::execute()", HelperFunctions::retrieve(truths, m_truthContainerName, m_event, m_store, m_verbose) ,"");
+ 
+  const xAOD::JetContainer* jets(nullptr);
+  if (m_jetContainerName != "")
+    RETURN_CHECK("TruthHistsAlgo::execute()", HelperFunctions::retrieve(jets, m_jetContainerName, m_event, m_store, m_verbose) ,"");
+
+  RETURN_CHECK("TruthHistsAlgo::execute()", m_plots_default_cuts->execute( truths, jets, eventWeight), "");
+
 
   return EL::StatusCode::SUCCESS;
 }

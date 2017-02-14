@@ -3,16 +3,20 @@
 
 #include "xAODAnaHelpers/HistogramManager.h"
 #include <xAODTruth/TruthParticleContainer.h>
+#include <xAODJet/JetContainer.h>
 
 class TruthHists : public HistogramManager
 {
   public:
-    TruthHists(std::string name, std::string detailStr, float truth_ptMinCut = 0, float truth_etaAbsMaxCut = 1e8);
+    TruthHists(std::string name, std::string detailStr, 
+        float truth_ptMinCut = 0, float truth_etaAbsMaxCut = 1e8, 
+        float jet_ptMinCut = 0, float bJet_etaAbsMaxCut = 1e8, float min_n_bJets = 1e8);
     ~TruthHists();
 
     StatusCode initialize();
-    StatusCode execute( const xAOD::TruthParticleContainer* truths, float eventWeight );
+    StatusCode execute( const xAOD::TruthParticleContainer* truths, const xAOD::JetContainer* jets, float eventWeight );
     StatusCode execute( const xAOD::TruthParticle* truth, float eventWeight);
+    StatusCode execute( const xAOD::Jet* jet, float eventWeight);
     using HistogramManager::book; // make other overloaded versions of book() to show up in subclass
     using HistogramManager::execute; // overload
 
@@ -26,8 +30,14 @@ class TruthHists : public HistogramManager
 
   private:
 
+    // truth parton cuts
     float m_truth_ptMinCut; //!
     float m_truth_etaAbsMaxCut; //!
+
+    // truth jet cuts
+    float m_jet_ptMinCut = 0.;
+    float m_bJet_etaAbsMaxCut = 1e8;
+    float m_min_n_bJets = 1e8;
 
     int m_ntruth; //!
     int m_ne; //!
@@ -44,6 +54,8 @@ class TruthHists : public HistogramManager
     int m_nN1; //!
     int m_nN2; //!
 
+    int m_njet; //!
+
     std::vector<const xAOD::TruthParticle*> m_C1;
     std::vector<const xAOD::TruthParticle*> m_N2;
     std::vector<const xAOD::TruthParticle*> m_N1_from_C1;
@@ -54,6 +66,7 @@ class TruthHists : public HistogramManager
     std::vector<const xAOD::TruthParticle*> m_C1_W_decays;
     std::vector<const xAOD::TruthParticle*> m_N2_Zh_decays;
 
+    TH1F* m_truth_n_nocut; //!
     TH1F* m_truth_n; //!
     TH1F* m_truth_pt; //!
     TH1F* m_truth_pt_s; //!
@@ -281,6 +294,16 @@ class TruthHists : public HistogramManager
     TH1F* m_good_Zh_MET_dEta; //!
     TH1F* m_good_Zh_MET_dPhi; //!
     TH1F* m_good_Zh_MET_dR; //!
+
+    TH1F* m_jet_n_nocut; //!
+    TH1F* m_jet_n; //!
+    TH1F* m_jet_pt; //!
+    TH1F* m_jet_pt_s; //!
+    TH1F* m_jet_pt_l; //!
+    TH1F* m_jet_eta; //!
+    TH1F* m_jet_phi; //!
+    TH1F* m_jet_m; //!
+    TH1F* m_jet_m_l; //!
 };
 
 #endif
