@@ -3,10 +3,10 @@
 # 2017-02-07
 
 # Baseline cuts
-truth_ptMinCut = 25
-truth_etaAbsMaxCut = 2.5
-jet_ptMinCut = 20
-bJet_etaAbsMaxCut = 2.5
+truth_ptMinCut = 30
+truth_etaAbsMaxCut = 2.8
+jet_ptMinCut = 30
+bJet_etaAbsMaxCut = 2.8
 min_n_bJets = 2
 
 from xAH_config import xAH_config

@@ -9,11 +9,13 @@ if [ -z "$ROOTCOREBIN" ]; then
 else
 
   cd $ROOTCOREBIN/.. 
-  mkdir -p results
+  mkdir -p ewk_truth_hists
 
-  for sample in $(cat $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/sample_list.txt); do
-    echo "Running: "xAH_run.py --files SUSY_EWK_Truth/filelists/${sample}.txt --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir results/${sample} --verbose --force direct 2>&1 >/dev/null &
-    xAH_run.py --files SUSY_EWK_Truth/filelists/${sample}.txt --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir results/${sample} --verbose --force direct 2>&1 >/dev/null &
+  for sample in $(ls $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/); do
+    echo $sample
+    sample_tag=$(echo $sample | sed -r "s/.txt//g")
+    echo "Running: "xAH_run.py --files SUSY_EWK_Truth/filelists/${sample} --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir ewk_truth_hists/${sample_tag} --verbose --force direct
+    xAH_run.py --files SUSY_EWK_Truth/filelists/${sample} --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir ewk_truth_hists/${sample_tag} --verbose --force direct 2>&1 >/dev/null &
   done;
 
 fi
