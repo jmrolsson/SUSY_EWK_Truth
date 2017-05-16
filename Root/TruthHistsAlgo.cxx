@@ -78,7 +78,6 @@ EL::StatusCode TruthHistsAlgo :: execute ()
 
   RETURN_CHECK("TruthHistsAlgo::execute()", m_plots_default_cuts->execute( truths, jets, eventWeight), "");
 
-
   return EL::StatusCode::SUCCESS;
 }
 

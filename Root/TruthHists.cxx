@@ -36,6 +36,7 @@ StatusCode TruthHists::initialize() {
   unsigned int nBinsPhi = 64; float minBinPhi = -TMath::Pi(); float maxBinPhi = TMath::Pi();
   unsigned int nBinsDR = 40; float minBinDR = 0.0; float maxBinDR = 4.0;
 
+  m_truth_n_nocut       = book(m_name, "truth_n_nocut",      "N_{truth}", nBinsN_l, minBinN_l, maxBinN_l);
   m_truth_n             = book(m_name, "truth_n",             "N_{truth}", nBinsN_l, minBinN_l, maxBinN_l);
   m_truth_pt            = book(m_name, "truth_pt",            "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
   m_truth_pt_s          = book(m_name, "truth_pt_s",          "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
@@ -305,6 +306,7 @@ StatusCode TruthHists::initialize() {
 
   }
 
+  m_jet_n_nocut       = book(m_name, "jet_n_nocut",       "N_{jet}", nBinsN_l, minBinN_l, maxBinN_l);
   m_jet_n             = book(m_name, "jet_n",             "N_{jet}", nBinsN_l, minBinN_l, maxBinN_l);
   m_jet_pt            = book(m_name, "jet_pt",            "jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
   m_jet_pt_s          = book(m_name, "jet_pt_s",          "jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
