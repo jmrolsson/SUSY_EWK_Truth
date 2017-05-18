@@ -3,11 +3,12 @@
 # 2017-02-07
 
 # Baseline cuts
-truth_ptMinCut = 30
-truth_etaAbsMaxCut = 2.8
+truth_ptMinCut = 20
+truth_etaAbsMaxCut = 4.0
 jet_ptMinCut = 30
 bJet_etaAbsMaxCut = 2.8
-min_n_bJets = 2
+min_n_jetsCut = 4;
+min_n_bJetsCut = 1
 
 from xAH_config import xAH_config
 c = xAH_config()
@@ -28,7 +29,8 @@ c.setalg("TruthHistsAlgo", {"m_name": "Truth_baselineCuts",
                             "m_truth_etaAbsMaxCut": truth_etaAbsMaxCut,
                             "m_jet_ptMinCut": jet_ptMinCut,
                             "m_bJet_etaAbsMaxCut": bJet_etaAbsMaxCut,
-                            "m_min_n_bJets": min_n_bJets,
+                            "m_min_n_jetsCut": min_n_jetsCut,
+                            "m_min_n_bJetsCut": min_n_bJetsCut,
                             "m_debug": False})
 
 ''' Truth jets '''

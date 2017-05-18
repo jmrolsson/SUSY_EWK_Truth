@@ -45,8 +45,7 @@ EL::StatusCode TruthHistsAlgo :: histInitialize ()
 
 
   // declare class and add histograms to output
-  m_plots_default_cuts = new TruthHists(m_name, m_detailStr, m_truth_ptMinCut, m_truth_etaAbsMaxCut, 
-      m_jet_ptMinCut, m_bJet_etaAbsMaxCut, m_min_n_bJets);
+  m_plots_default_cuts = new TruthHists(m_name, m_detailStr, m_truth_ptMinCut, m_truth_etaAbsMaxCut, m_jet_ptMinCut, m_bJet_etaAbsMaxCut, m_min_n_jetsCut, m_min_n_bJetsCut);
   RETURN_CHECK("TruthHistsAlgo::histInitialize()", m_plots_default_cuts -> initialize(), "");
   m_plots_default_cuts -> record( wk() );
 

@@ -17,5 +17,6 @@ The code takes ATLAS ["TRUTH" xAODs](https://twiki.cern.ch/twiki/bin/view/AtlasP
 
 Example:
 ```
-xAH_run.py --files TRUTH1.root --config SUSY_EWK_Truth/scripts/truth_analysis_test.py --submitDir results/truth_test --verbose --force direct
+xAH_run.py --files TRUTH1.root --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir truth_test --verbose --force direct
 ```
+(Replace "TRUTH1.root" with your xAOD.)

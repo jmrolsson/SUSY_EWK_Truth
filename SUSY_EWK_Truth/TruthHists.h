@@ -10,13 +10,12 @@ class TruthHists : public HistogramManager
   public:
     TruthHists(std::string name, std::string detailStr, 
         float truth_ptMinCut = 0, float truth_etaAbsMaxCut = 1e8, 
-        float jet_ptMinCut = 0, float bJet_etaAbsMaxCut = 1e8, float min_n_bJets = 1e8);
+        float jet_ptMinCut = 0, float bJet_etaAbsMaxCut = 1e8, int min_n_jetsCut = 10000, int min_n_bJetsCut = 10000);
     ~TruthHists();
 
     StatusCode initialize();
     StatusCode execute( const xAOD::TruthParticleContainer* truths, const xAOD::JetContainer* jets, float eventWeight );
     StatusCode execute( const xAOD::TruthParticle* truth, float eventWeight);
-    StatusCode execute( const xAOD::Jet* jet, float eventWeight);
     using HistogramManager::book; // make other overloaded versions of book() to show up in subclass
     using HistogramManager::execute; // overload
 
@@ -37,7 +36,8 @@ class TruthHists : public HistogramManager
     // truth jet cuts
     float m_jet_ptMinCut = 0.;
     float m_bJet_etaAbsMaxCut = 1e8;
-    float m_min_n_bJets = 1e8;
+    int m_min_n_jetsCut = 10000;
+    int m_min_n_bJetsCut = 10000;
 
     int m_ntruth; //!
     int m_ne; //!
@@ -53,8 +53,6 @@ class TruthHists : public HistogramManager
     int m_nC1; //!
     int m_nN1; //!
     int m_nN2; //!
-
-    int m_njet; //!
 
     std::vector<const xAOD::TruthParticle*> m_C1;
     std::vector<const xAOD::TruthParticle*> m_N2;
@@ -297,6 +295,7 @@ class TruthHists : public HistogramManager
 
     TH1F* m_jet_n_nocut; //!
     TH1F* m_jet_n; //!
+    TH1F* m_bjet_n; //!
     TH1F* m_jet_pt; //!
     TH1F* m_jet_pt_s; //!
     TH1F* m_jet_pt_l; //!
@@ -304,6 +303,54 @@ class TruthHists : public HistogramManager
     TH1F* m_jet_phi; //!
     TH1F* m_jet_m; //!
     TH1F* m_jet_m_l; //!
+
+    TH1F* m_jet_1_pt; //!
+    TH1F* m_jet_1_pt_s; //!
+    TH1F* m_jet_1_pt_l; //!
+    TH1F* m_jet_1_eta; //!
+    TH1F* m_jet_1_phi; //!
+    TH1F* m_jet_1_m; //!
+    TH1F* m_jet_1_m_l; //!
+
+    TH1F* m_jet_2_pt; //!
+    TH1F* m_jet_2_pt_s; //!
+    TH1F* m_jet_2_pt_l; //!
+    TH1F* m_jet_2_eta; //!
+    TH1F* m_jet_2_phi; //!
+    TH1F* m_jet_2_m; //!
+    TH1F* m_jet_2_m_l; //!
+
+    TH1F* m_jet_3_pt; //!
+    TH1F* m_jet_3_pt_s; //!
+    TH1F* m_jet_3_pt_l; //!
+    TH1F* m_jet_3_eta; //!
+    TH1F* m_jet_3_phi; //!
+    TH1F* m_jet_3_m; //!
+    TH1F* m_jet_3_m_l; //!
+
+    TH1F* m_jet_4_pt; //!
+    TH1F* m_jet_4_pt_s; //!
+    TH1F* m_jet_4_pt_l; //!
+    TH1F* m_jet_4_eta; //!
+    TH1F* m_jet_4_phi; //!
+    TH1F* m_jet_4_m; //!
+    TH1F* m_jet_4_m_l; //!
+
+    TH1F* m_jet_5_pt; //!
+    TH1F* m_jet_5_pt_s; //!
+    TH1F* m_jet_5_pt_l; //!
+    TH1F* m_jet_5_eta; //!
+    TH1F* m_jet_5_phi; //!
+    TH1F* m_jet_5_m; //!
+    TH1F* m_jet_5_m_l; //!
+
+    TH1F* m_jet_6_pt; //!
+    TH1F* m_jet_6_pt_s; //!
+    TH1F* m_jet_6_pt_l; //!
+    TH1F* m_jet_6_eta; //!
+    TH1F* m_jet_6_phi; //!
+    TH1F* m_jet_6_m; //!
+    TH1F* m_jet_6_m_l; //!
 };
 
 #endif
