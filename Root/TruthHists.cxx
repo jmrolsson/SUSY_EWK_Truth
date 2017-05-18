@@ -31,13 +31,12 @@ StatusCode TruthHists::initialize() {
 
   unsigned int nBinsN = 10; float minBinN = -0.5; float maxBinN = 9.5;
   unsigned int nBinsN_m = 50; float minBinN_m = -0.5; float maxBinN_m = 49.5;
-  unsigned int nBinsN_l = 350; float minBinN_l = -0.5; float maxBinN_l = 699.5;
+  unsigned int nBinsN_l = 700; float minBinN_l = -0.5; float maxBinN_l = 699.5;
   unsigned int nBinsPt = 250; float minBinPt = 0.0; float maxBinPt_s = 200.; float maxBinPt = 1000.; float maxBinPt_l = 2000.;
   unsigned int nBinsEta = 80; float minBinEta = -4.0; float maxBinEta = 4.0;
   unsigned int nBinsPhi = 64; float minBinPhi = -TMath::Pi(); float maxBinPhi = TMath::Pi();
   unsigned int nBinsDR = 40; float minBinDR = 0.0; float maxBinDR = 4.0;
 
-  m_truth_n_nocut       = book(m_name, "truth_n_nocut",       "N_{truth}", nBinsN_l, minBinN_l, maxBinN_l);
   m_truth_n             = book(m_name, "truth_n",             "N_{truth}", nBinsN_l, minBinN_l, maxBinN_l);
   m_truth_pt            = book(m_name, "truth_pt",            "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
   m_truth_pt_s          = book(m_name, "truth_pt_s",          "truth p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
@@ -307,64 +306,69 @@ StatusCode TruthHists::initialize() {
 
   }
 
-  m_jet_n_nocut       = book(m_name, "jet_n_nocut",       "N_{jet}", nBinsN_l, minBinN_l, maxBinN_l);
-  m_jet_n             = book(m_name, "jet_n",             "N_{jet}", nBinsN_l, minBinN_l, maxBinN_l);
-  m_bjet_n            = book(m_name, "bjet_n",            "N_{b-jet}", nBinsN_l, minBinN_l, maxBinN_l);
-  m_jet_pt            = book(m_name, "jet_pt",            "jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
-  m_jet_pt_s          = book(m_name, "jet_pt_s",          "jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-  m_jet_pt_l          = book(m_name, "jet_pt_l",          "jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
-  m_jet_eta           = book(m_name, "jet_eta",           "jet #eta", nBinsEta, minBinEta, maxBinEta);
-  m_jet_phi           = book(m_name, "jet_phi",           "jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
-  m_jet_m             = book(m_name, "jet_m",             "jet m [GeV]", 150, 0, 150);
-  m_jet_m_l           = book(m_name, "jet_m_l",           "jet m [GeV]", 100, 0, 1000);
+  m_fillJets = false;
+  if (m_detailStr.find("jets") != std::string::npos) {
+    m_fillJets = true;
 
-  m_jet_1_pt            = book(m_name, "jet_1_pt",        "Leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
-  m_jet_1_pt_s          = book(m_name, "jet_1_pt_s",      "Leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-  m_jet_1_pt_l          = book(m_name, "jet_1_pt_l",      "Leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
-  m_jet_1_eta           = book(m_name, "jet_1_eta",       "Leading jet #eta", nBinsEta, minBinEta, maxBinEta);
-  m_jet_1_phi           = book(m_name, "jet_1_phi",       "Leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
-  m_jet_1_m             = book(m_name, "jet_1_m",         "Leading jet m [GeV]", 150, 0, 150);
-  m_jet_1_m_l           = book(m_name, "jet_1_m_l",       "Leading jet m [GeV]", 100, 0, 1000);
+    m_jet_n             = book(m_name, "jet_n",             "N_{jet}", nBinsN, minBinN, maxBinN);
+    m_bjet_n            = book(m_name, "bjet_n",            "N_{b-jet}", nBinsN, minBinN, maxBinN);
+    m_jet_pt            = book(m_name, "jet_pt",            "jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
+    m_jet_pt_s          = book(m_name, "jet_pt_s",          "jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_jet_pt_l          = book(m_name, "jet_pt_l",          "jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
+    m_jet_eta           = book(m_name, "jet_eta",           "jet #eta", nBinsEta, minBinEta, maxBinEta);
+    m_jet_phi           = book(m_name, "jet_phi",           "jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
+    m_jet_m             = book(m_name, "jet_m",             "jet m [GeV]", 150, 0, 150);
+    m_jet_m_l           = book(m_name, "jet_m_l",           "jet m [GeV]", 100, 0, 1000);
 
-  m_jet_2_pt            = book(m_name, "jet_2_pt",        "Sub-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
-  m_jet_2_pt_s          = book(m_name, "jet_2_pt_s",      "Sub-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-  m_jet_2_pt_l          = book(m_name, "jet_2_pt_l",      "Sub-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
-  m_jet_2_eta           = book(m_name, "jet_2_eta",       "Sub-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
-  m_jet_2_phi           = book(m_name, "jet_2_phi",       "Sub-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
-  m_jet_2_m             = book(m_name, "jet_2_m",         "Sub-leading jet m [GeV]", 150, 0, 150);
-  m_jet_2_m_l           = book(m_name, "jet_2_m_l",       "Sub-leading jet m [GeV]", 100, 0, 1000);
+    m_jet_1_pt            = book(m_name, "jet_1_pt",        "Leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
+    m_jet_1_pt_s          = book(m_name, "jet_1_pt_s",      "Leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_jet_1_pt_l          = book(m_name, "jet_1_pt_l",      "Leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
+    m_jet_1_eta           = book(m_name, "jet_1_eta",       "Leading jet #eta", nBinsEta, minBinEta, maxBinEta);
+    m_jet_1_phi           = book(m_name, "jet_1_phi",       "Leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
+    m_jet_1_m             = book(m_name, "jet_1_m",         "Leading jet m [GeV]", 150, 0, 150);
+    m_jet_1_m_l           = book(m_name, "jet_1_m_l",       "Leading jet m [GeV]", 100, 0, 1000);
 
-  m_jet_3_pt            = book(m_name, "jet_3_pt",        "3rd-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
-  m_jet_3_pt_s          = book(m_name, "jet_3_pt_s",      "3rd-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-  m_jet_3_pt_l          = book(m_name, "jet_3_pt_l",      "3rd-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
-  m_jet_3_eta           = book(m_name, "jet_3_eta",       "3rd-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
-  m_jet_3_phi           = book(m_name, "jet_3_phi",       "3rd-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
-  m_jet_3_m             = book(m_name, "jet_3_m",         "3rd-leading jet m [GeV]", 150, 0, 150);
-  m_jet_3_m_l           = book(m_name, "jet_3_m_l",       "3rd-leading jet m [GeV]", 100, 0, 1000);
+    m_jet_2_pt            = book(m_name, "jet_2_pt",        "Sub-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
+    m_jet_2_pt_s          = book(m_name, "jet_2_pt_s",      "Sub-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_jet_2_pt_l          = book(m_name, "jet_2_pt_l",      "Sub-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
+    m_jet_2_eta           = book(m_name, "jet_2_eta",       "Sub-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
+    m_jet_2_phi           = book(m_name, "jet_2_phi",       "Sub-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
+    m_jet_2_m             = book(m_name, "jet_2_m",         "Sub-leading jet m [GeV]", 150, 0, 150);
+    m_jet_2_m_l           = book(m_name, "jet_2_m_l",       "Sub-leading jet m [GeV]", 100, 0, 1000);
 
-  m_jet_4_pt            = book(m_name, "jet_4_pt",        "4th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
-  m_jet_4_pt_s          = book(m_name, "jet_4_pt_s",      "4th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-  m_jet_4_pt_l          = book(m_name, "jet_4_pt_l",      "4th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
-  m_jet_4_eta           = book(m_name, "jet_4_eta",       "4th-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
-  m_jet_4_phi           = book(m_name, "jet_4_phi",       "4th-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
-  m_jet_4_m             = book(m_name, "jet_4_m",         "4th-leading jet m [GeV]", 150, 0, 150);
-  m_jet_4_m_l           = book(m_name, "jet_4_m_l",       "4th-leading jet m [GeV]", 100, 0, 1000);
+    m_jet_3_pt            = book(m_name, "jet_3_pt",        "3rd-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
+    m_jet_3_pt_s          = book(m_name, "jet_3_pt_s",      "3rd-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_jet_3_pt_l          = book(m_name, "jet_3_pt_l",      "3rd-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
+    m_jet_3_eta           = book(m_name, "jet_3_eta",       "3rd-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
+    m_jet_3_phi           = book(m_name, "jet_3_phi",       "3rd-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
+    m_jet_3_m             = book(m_name, "jet_3_m",         "3rd-leading jet m [GeV]", 150, 0, 150);
+    m_jet_3_m_l           = book(m_name, "jet_3_m_l",       "3rd-leading jet m [GeV]", 100, 0, 1000);
 
-  m_jet_5_pt            = book(m_name, "jet_5_pt",        "5th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
-  m_jet_5_pt_s          = book(m_name, "jet_5_pt_s",      "5th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-  m_jet_5_pt_l          = book(m_name, "jet_5_pt_l",      "5th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
-  m_jet_5_eta           = book(m_name, "jet_5_eta",       "5th-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
-  m_jet_5_phi           = book(m_name, "jet_5_phi",       "5th-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
-  m_jet_5_m             = book(m_name, "jet_5_m",         "5th-leading jet m [GeV]", 150, 0, 150);
-  m_jet_5_m_l           = book(m_name, "jet_5_m_l",       "5th-leading jet m [GeV]", 100, 0, 1000);
+    m_jet_4_pt            = book(m_name, "jet_4_pt",        "4th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
+    m_jet_4_pt_s          = book(m_name, "jet_4_pt_s",      "4th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_jet_4_pt_l          = book(m_name, "jet_4_pt_l",      "4th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
+    m_jet_4_eta           = book(m_name, "jet_4_eta",       "4th-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
+    m_jet_4_phi           = book(m_name, "jet_4_phi",       "4th-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
+    m_jet_4_m             = book(m_name, "jet_4_m",         "4th-leading jet m [GeV]", 150, 0, 150);
+    m_jet_4_m_l           = book(m_name, "jet_4_m_l",       "4th-leading jet m [GeV]", 100, 0, 1000);
 
-  m_jet_6_pt            = book(m_name, "jet_6_pt",        "6th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
-  m_jet_6_pt_s          = book(m_name, "jet_6_pt_s",      "6th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
-  m_jet_6_pt_l          = book(m_name, "jet_6_pt_l",      "6th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
-  m_jet_6_eta           = book(m_name, "jet_6_eta",       "6th-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
-  m_jet_6_phi           = book(m_name, "jet_6_phi",       "6th-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
-  m_jet_6_m             = book(m_name, "jet_6_m",         "6th-leading jet m [GeV]", 150, 0, 150);
-  m_jet_6_m_l           = book(m_name, "jet_6_m_l",       "6th-leading jet m [GeV]", 100, 0, 1000);
+    m_jet_5_pt            = book(m_name, "jet_5_pt",        "5th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
+    m_jet_5_pt_s          = book(m_name, "jet_5_pt_s",      "5th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_jet_5_pt_l          = book(m_name, "jet_5_pt_l",      "5th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
+    m_jet_5_eta           = book(m_name, "jet_5_eta",       "5th-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
+    m_jet_5_phi           = book(m_name, "jet_5_phi",       "5th-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
+    m_jet_5_m             = book(m_name, "jet_5_m",         "5th-leading jet m [GeV]", 150, 0, 150);
+    m_jet_5_m_l           = book(m_name, "jet_5_m_l",       "5th-leading jet m [GeV]", 100, 0, 1000);
+
+    m_jet_6_pt            = book(m_name, "jet_6_pt",        "6th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt);
+    m_jet_6_pt_s          = book(m_name, "jet_6_pt_s",      "6th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_s);
+    m_jet_6_pt_l          = book(m_name, "jet_6_pt_l",      "6th-leading jet p_{T} [GeV]", nBinsPt, minBinPt, maxBinPt_l);
+    m_jet_6_eta           = book(m_name, "jet_6_eta",       "6th-leading jet #eta", nBinsEta, minBinEta, maxBinEta);
+    m_jet_6_phi           = book(m_name, "jet_6_phi",       "6th-leading jet #phi",nBinsPhi, minBinPhi, maxBinPhi);
+    m_jet_6_m             = book(m_name, "jet_6_m",         "6th-leading jet m [GeV]", 150, 0, 150);
+    m_jet_6_m_l           = book(m_name, "jet_6_m_l",       "6th-leading jet m [GeV]", 100, 0, 1000);
+
+  }
 
   return StatusCode::SUCCESS;
 }
@@ -382,19 +386,97 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, cons
       if (fabs(jet->eta()) > m_bJet_etaAbsMaxCut) continue;
       njet++;
 
-      if (jet->auxdata<int>("GhostBHadronsFinalCount")) {
+      if (jet->auxdata<int>("GhostBHadronsFinalCount") > 0) {
         nbjet++;
       }
     }
 
     if (njet < m_min_n_jetsCut || nbjet < m_min_n_bJetsCut)
       return StatusCode::SUCCESS;
+
+    // Fill jets histos
+    if (m_fillJets) {
+
+      m_jet_n -> Fill(njet);
+      m_bjet_n -> Fill(nbjet);
+
+      // Loop over truth jets
+      unsigned int i = 0;
+      for(auto jet: *jets) {
+
+        int nbquark = jet->auxdata<int>("GhostBQuarksFinalCount");
+        float pt   = jet->pt()/1e3;
+        float eta  = jet->eta();
+        float phi  = jet->phi();
+        float m    = jet->m()/1e3;
+
+        m_jet_pt_s          -> Fill(pt,    eventWeight);
+        m_jet_pt            -> Fill(pt,    eventWeight);
+        m_jet_pt_l          -> Fill(pt,    eventWeight);
+        m_jet_eta           -> Fill(eta,   eventWeight);
+        m_jet_phi           -> Fill(phi,   eventWeight);
+        m_jet_m             -> Fill(m,     eventWeight);
+        m_jet_m_l           -> Fill(m,     eventWeight);
+
+        if (i==0) {
+          m_jet_1_pt_s      -> Fill(pt,    eventWeight);
+          m_jet_1_pt        -> Fill(pt,    eventWeight);
+          m_jet_1_pt_l      -> Fill(pt,    eventWeight);
+          m_jet_1_eta       -> Fill(eta,   eventWeight);
+          m_jet_1_phi       -> Fill(phi,   eventWeight);
+          m_jet_1_m         -> Fill(m,     eventWeight);
+          m_jet_1_m_l       -> Fill(m,     eventWeight);
+        } else if (i==1) {
+          m_jet_2_pt_s      -> Fill(pt,    eventWeight);
+          m_jet_2_pt        -> Fill(pt,    eventWeight);
+          m_jet_2_pt_l      -> Fill(pt,    eventWeight);
+          m_jet_2_eta       -> Fill(eta,   eventWeight);
+          m_jet_2_phi       -> Fill(phi,   eventWeight);
+          m_jet_2_m         -> Fill(m,     eventWeight);
+          m_jet_2_m_l       -> Fill(m,     eventWeight);
+        } else if (i==2) {
+          m_jet_3_pt_s      -> Fill(pt,    eventWeight);
+          m_jet_3_pt        -> Fill(pt,    eventWeight);
+          m_jet_3_pt_l      -> Fill(pt,    eventWeight);
+          m_jet_3_eta       -> Fill(eta,   eventWeight);
+          m_jet_3_phi       -> Fill(phi,   eventWeight);
+          m_jet_3_m         -> Fill(m,     eventWeight);
+          m_jet_3_m_l       -> Fill(m,     eventWeight);
+        } else if (i==3) {
+          m_jet_4_pt_s      -> Fill(pt,    eventWeight);
+          m_jet_4_pt        -> Fill(pt,    eventWeight);
+          m_jet_4_pt_l      -> Fill(pt,    eventWeight);
+          m_jet_4_eta       -> Fill(eta,   eventWeight);
+          m_jet_4_phi       -> Fill(phi,   eventWeight);
+          m_jet_4_m         -> Fill(m,     eventWeight);
+          m_jet_4_m_l       -> Fill(m,     eventWeight);
+        } else if (i==4) {
+          m_jet_5_pt_s      -> Fill(pt,    eventWeight);
+          m_jet_5_pt        -> Fill(pt,    eventWeight);
+          m_jet_5_pt_l      -> Fill(pt,    eventWeight);
+          m_jet_5_eta       -> Fill(eta,   eventWeight);
+          m_jet_5_phi       -> Fill(phi,   eventWeight);
+          m_jet_5_m         -> Fill(m,     eventWeight);
+          m_jet_5_m_l       -> Fill(m,     eventWeight);
+        } else if (i==5) {
+          m_jet_6_pt_s      -> Fill(pt,    eventWeight);
+          m_jet_6_pt        -> Fill(pt,    eventWeight);
+          m_jet_6_pt_l      -> Fill(pt,    eventWeight);
+          m_jet_6_eta       -> Fill(eta,   eventWeight);
+          m_jet_6_phi       -> Fill(phi,   eventWeight);
+          m_jet_6_m         -> Fill(m,     eventWeight);
+          m_jet_6_m_l       -> Fill(m,     eventWeight);
+        }
+
+        i++;
+      }
+    }
+
   }
 
   if (truths != nullptr) {
 
     // Number of truth particle types per event (filled in the loop over truth partons below)
-    m_truth_n_nocut -> Fill(truths->size());
     m_ntruth = 0;
     m_ne = 0;
     m_nmu = 0;
@@ -439,93 +521,6 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, cons
       m_N1_n      -> Fill(m_nN1);
       m_N2_n      -> Fill(m_nN2);
     }
-  }
-
-  if (jets != nullptr) {
-
-    m_jet_n_nocut -> Fill(jets->size());
-    unsigned int njet = 0;
-    unsigned int nbjet = 0;
-
-    // Loop over truth jets
-    unsigned int i = 0;
-    for(auto jet: *jets) {
-
-      int nbquark = jet->auxdata<int>("GhostBQuarksFinalCount");
-      float pt   = jet->pt()/1e3;
-      float eta  = jet->eta();
-      float phi  = jet->phi();
-      float m    = jet->m()/1e3;
-
-      njet++;
-      if (nbquark > 0) {
-        nbjet++;
-      }
-      m_jet_pt_s          -> Fill(pt,    eventWeight);
-      m_jet_pt            -> Fill(pt,    eventWeight);
-      m_jet_pt_l          -> Fill(pt,    eventWeight);
-      m_jet_eta           -> Fill(eta,   eventWeight);
-      m_jet_phi           -> Fill(phi,   eventWeight);
-      m_jet_m             -> Fill(m,     eventWeight);
-      m_jet_m_l           -> Fill(m,     eventWeight);
-
-      if (i==0) {
-        m_jet_1_pt_s      -> Fill(pt,    eventWeight);
-        m_jet_1_pt        -> Fill(pt,    eventWeight);
-        m_jet_1_pt_l      -> Fill(pt,    eventWeight);
-        m_jet_1_eta       -> Fill(eta,   eventWeight);
-        m_jet_1_phi       -> Fill(phi,   eventWeight);
-        m_jet_1_m         -> Fill(m,     eventWeight);
-        m_jet_1_m_l       -> Fill(m,     eventWeight);
-      } else if (i==1) {
-        m_jet_2_pt_s      -> Fill(pt,    eventWeight);
-        m_jet_2_pt        -> Fill(pt,    eventWeight);
-        m_jet_2_pt_l      -> Fill(pt,    eventWeight);
-        m_jet_2_eta       -> Fill(eta,   eventWeight);
-        m_jet_2_phi       -> Fill(phi,   eventWeight);
-        m_jet_2_m         -> Fill(m,     eventWeight);
-        m_jet_2_m_l       -> Fill(m,     eventWeight);
-      } else if (i==2) {
-        m_jet_3_pt_s      -> Fill(pt,    eventWeight);
-        m_jet_3_pt        -> Fill(pt,    eventWeight);
-        m_jet_3_pt_l      -> Fill(pt,    eventWeight);
-        m_jet_3_eta       -> Fill(eta,   eventWeight);
-        m_jet_3_phi       -> Fill(phi,   eventWeight);
-        m_jet_3_m         -> Fill(m,     eventWeight);
-        m_jet_3_m_l       -> Fill(m,     eventWeight);
-      } else if (i==3) {
-        m_jet_4_pt_s      -> Fill(pt,    eventWeight);
-        m_jet_4_pt        -> Fill(pt,    eventWeight);
-        m_jet_4_pt_l      -> Fill(pt,    eventWeight);
-        m_jet_4_eta       -> Fill(eta,   eventWeight);
-        m_jet_4_phi       -> Fill(phi,   eventWeight);
-        m_jet_4_m         -> Fill(m,     eventWeight);
-        m_jet_4_m_l       -> Fill(m,     eventWeight);
-      } else if (i==4) {
-        m_jet_5_pt_s      -> Fill(pt,    eventWeight);
-        m_jet_5_pt        -> Fill(pt,    eventWeight);
-        m_jet_5_pt_l      -> Fill(pt,    eventWeight);
-        m_jet_5_eta       -> Fill(eta,   eventWeight);
-        m_jet_5_phi       -> Fill(phi,   eventWeight);
-        m_jet_5_m         -> Fill(m,     eventWeight);
-        m_jet_5_m_l       -> Fill(m,     eventWeight);
-      } else if (i==5) {
-        m_jet_6_pt_s      -> Fill(pt,    eventWeight);
-        m_jet_6_pt        -> Fill(pt,    eventWeight);
-        m_jet_6_pt_l      -> Fill(pt,    eventWeight);
-        m_jet_6_eta       -> Fill(eta,   eventWeight);
-        m_jet_6_phi       -> Fill(phi,   eventWeight);
-        m_jet_6_m         -> Fill(m,     eventWeight);
-        m_jet_6_m_l       -> Fill(m,     eventWeight);
-      }
-
-      i++;
-
-    }
-
-    m_jet_n -> Fill(njet);
-    m_bjet_n -> Fill(nbjet);
-
   }
 
   // kinematic plots for SUSY and di-boson decay products

@@ -17,14 +17,14 @@ c = xAH_config()
 c.setalg("TruthHistsAlgo", {"m_name": "Truth_noCuts",
                             "m_truthContainerName": "TruthParticles",
                             "m_jetContainerName": "AntiKt4TruthJets",
-                            "m_detailStr": "leptons quarks bosons susy substructure",
+                            "m_detailStr": "leptons quarks bosons susy substructure jets",
                             "m_debug": False})
 
 ''' Truth validation studies, baseline cuts '''
 c.setalg("TruthHistsAlgo", {"m_name": "Truth_baselineCuts",
                             "m_truthContainerName": "TruthParticles",
                             "m_jetContainerName": "AntiKt4TruthJets",
-                            "m_detailStr": "leptons quarks bosons susy substructure",
+                            "m_detailStr": "leptons quarks bosons susy substructure jets",
                             "m_truth_ptMinCut": truth_ptMinCut,
                             "m_truth_etaAbsMaxCut": truth_etaAbsMaxCut,
                             "m_jet_ptMinCut": jet_ptMinCut,

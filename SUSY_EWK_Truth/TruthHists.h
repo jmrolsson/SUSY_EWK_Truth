@@ -26,6 +26,7 @@ class TruthHists : public HistogramManager
     bool m_fillBosons; //!
     bool m_fillSUSY; //!
     bool m_fillSubstructure; //!
+    bool m_fillJets; //!
 
   private:
 
@@ -36,8 +37,8 @@ class TruthHists : public HistogramManager
     // truth jet cuts
     float m_jet_ptMinCut = 0.;
     float m_bJet_etaAbsMaxCut = 1e8;
-    int m_min_n_jetsCut = 10000;
-    int m_min_n_bJetsCut = 10000;
+    int m_min_n_jetsCut = 0;
+    int m_min_n_bJetsCut = 0;
 
     int m_ntruth; //!
     int m_ne; //!
@@ -64,7 +65,6 @@ class TruthHists : public HistogramManager
     std::vector<const xAOD::TruthParticle*> m_C1_W_decays;
     std::vector<const xAOD::TruthParticle*> m_N2_Zh_decays;
 
-    TH1F* m_truth_n_nocut; //!
     TH1F* m_truth_n; //!
     TH1F* m_truth_pt; //!
     TH1F* m_truth_pt_s; //!
@@ -293,7 +293,6 @@ class TruthHists : public HistogramManager
     TH1F* m_good_Zh_MET_dPhi; //!
     TH1F* m_good_Zh_MET_dR; //!
 
-    TH1F* m_jet_n_nocut; //!
     TH1F* m_jet_n; //!
     TH1F* m_bjet_n; //!
     TH1F* m_jet_pt; //!

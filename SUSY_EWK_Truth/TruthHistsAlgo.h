@@ -25,8 +25,8 @@ public:
   // truth jet cuts
   float m_jet_ptMinCut = 0.;
   float m_bJet_etaAbsMaxCut = 1e8;
-  float m_min_n_jetsCut = 1e8;
-  float m_min_n_bJetsCut = 1e8;
+  int m_min_n_jetsCut = 0;
+  int m_min_n_bJetsCut = 0;
 
 private:
   TruthHists* m_plots_default_cuts; //!
