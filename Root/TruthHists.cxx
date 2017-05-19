@@ -386,7 +386,7 @@ StatusCode TruthHists::execute( const xAOD::TruthParticleContainer* truths, cons
       if (fabs(jet->eta()) > m_bJet_etaAbsMaxCut) continue;
       njet++;
 
-      if (jet->auxdata<int>("GhostBHadronsFinalCount") > 0) {
+      if (jet->auxdata<int>("GhostBQuarksFinalCount") > 0) {
         nbjet++;
       }
     }
