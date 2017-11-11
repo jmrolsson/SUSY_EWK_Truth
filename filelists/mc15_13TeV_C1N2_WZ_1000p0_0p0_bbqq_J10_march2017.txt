@@ -1,2 +1,2 @@
-/share/t3data2/jolsson/ewk_truth_xaod/user.jolsson.mc15_13TeV.000023.MGPy8EG_A14N23LO_C1N2_WZ_1000p0_0p0_bbqq_J10.TRUTH1.20170516_1.1_EXT0/user.jolsson.11346587.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
-/share/t3data2/jolsson/ewk_truth_xaod/user.jolsson.mc15_13TeV.000023.MGPy8EG_A14N23LO_C1N2_WZ_1000p0_0p0_bbqq_J10.TRUTH1.20170516_1.1_EXT0/user.jolsson.11346587.EXT0._000002.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000023.MGPy8EG_A14N23LO_C1N2_WZ_1000p0_0p0_bbqq_J10.TRUTH1.20170516_1.1_EXT0/user.jolsson.11346587.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000023.MGPy8EG_A14N23LO_C1N2_WZ_1000p0_0p0_bbqq_J10.TRUTH1.20170516_1.1_EXT0/user.jolsson.11346587.EXT0._000002.DAOD_TRUTH1.TRUTH.pool.root

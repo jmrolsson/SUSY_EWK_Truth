@@ -1,1 +1,9 @@
-/share/t3data2/jolsson/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.000001.MGPy8EG_A14N23LO_C1N2_WZ_500p0_100p0_bbqq_J10.TRUTH1.20170506_2.1_EXT0/user.jolsson.11298814.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root

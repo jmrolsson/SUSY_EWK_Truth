@@ -22,7 +22,6 @@ else
   for sample in $(ls $ROOTCOREBIN/../SUSY_EWK_Truth/filelists/ | grep $pattern); do
     echo $sample
     sample_tag=$(echo $sample | sed -r "s/.txt//g")
-    echo "Running: "xAH_run.py --files SUSY_EWK_Truth/filelists/${sample} --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir ewk_truth_hists/${sample_tag} --verbose --force direct
     xAH_run.py --files SUSY_EWK_Truth/filelists/${sample} --inputList --config SUSY_EWK_Truth/scripts/truth_analysis_config.py --submitDir ewk_truth_hists/${sample_tag} --verbose --force direct 2>&1 >/dev/null &
   done;
 

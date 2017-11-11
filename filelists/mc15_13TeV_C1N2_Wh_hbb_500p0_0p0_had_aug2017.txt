@@ -1,0 +1,2 @@
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.394338.MGPy8EG_A14N23LO_C1N2_Wh_hbb_500p0_0p0_had.TRUTH1.20170814_validation_EXT0/user.jolsson.11940012.EXT0._000001.DAOD_TRUTH1.TRUTH.pool.root
+/share/t3data2/jolsson/EWK/ewk_truth_xaod/user.jolsson.mc15_13TeV.394338.MGPy8EG_A14N23LO_C1N2_Wh_hbb_500p0_0p0_had.TRUTH1.20170814_validation_EXT0/user.jolsson.11940012.EXT0._000002.DAOD_TRUTH1.TRUTH.pool.root
